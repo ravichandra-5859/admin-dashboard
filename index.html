@@ -6,7 +6,6 @@
 
     <title>Admin Dashboard</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Font Awesome -->
@@ -17,82 +16,121 @@
   </head>
 
   <body>
+    <!-- Loader -->
+    <div class="loader">
+      <div class="spinner"></div>
+    </div>
+
     <div class="container">
       <!-- Sidebar -->
       <div class="sidebar">
-        <h2 class="logo">AdminPro</h2>
+        <a href="index.html"><h2 class="logo">AdminPro</h2></a>
 
         <ul>
-          <li class="active">
-            <i class="fa-solid fa-house"></i>
-            Dashboard
-          </li>
+          <ul>
+            <a href="dashboard.html">
+              <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+              </li>
+            </a>
 
-          <li>
-            <i class="fa-solid fa-chart-line"></i>
-            Analytics
-          </li>
+            <a href="analytics.html">
+              <li>
+                <i class="fa-solid fa-chart-line"></i>
+                Analytics
+              </li>
+            </a>
 
-          <li>
-            <i class="fa-solid fa-users"></i>
-            Users
-          </li>
+            <a href="users.html">
+              <li>
+                <i class="fa-solid fa-users"></i>
+                Users
+              </li>
+            </a>
 
-          <li>
-            <i class="fa-solid fa-folder"></i>
-            Projects
-          </li>
+            <a href="projects.html">
+              <li>
+                <i class="fa-solid fa-folder"></i>
+                Projects
+              </li>
+            </a>
 
-          <li>
-            <i class="fa-solid fa-gear"></i>
-            Settings
-          </li>
+            <a href="settings.html">
+              <li>
+                <i class="fa-solid fa-gear"></i>
+                Settings
+              </li>
+            </a>
+          </ul>
         </ul>
       </div>
 
       <!-- Main Content -->
       <div class="main-content">
+        <!-- Topbar -->
         <div class="topbar">
-          <i class="fa-solid fa-bars menu-toggle"></i>  
+          <i class="fa-solid fa-bars menu-toggle"></i>
+
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search..." />
+            <input type="text" id="searchInput" placeholder="Search cards..." />
           </div>
 
-          <div class="profile">
-            <img src="https://i.pravatar.cc/40" alt="" />
-            <span>Ravi</span>
-            
+          <div class="top-right">
+            <!-- <i class="fa-solid fa-bell notification"></i> -->
+
+            <div class="profile">
+              <img src="https://i.pravatar.cc/40" alt="" />
+              <span>Ravi</span>
+            </div>
           </div>
-          
         </div>
-        <h1>Welcome Ravi 👋</h1>
+
+        <div class="date-time"></div>
+        <div class="banner">
+          <div class="banner-text">
+            <h2>Welcome Back, Ravi 👋</h2>
+            <p>Monitor your projects, analytics and team performance.</p>
+
+            <button>View Reports</button>
+          </div>
+
+          <div class="banner-icon">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+        </div>
+        <!-- <h1>Welcome Ravi 👋</h1> -->
+
+        <!-- Cards -->
         <div class="cards">
           <div class="card">
             <i class="fa-solid fa-users"></i>
             <h3>Total Users</h3>
-            <h2>12,845</h2>
+            <h2 class="counter" data-target="12845">0</h2>
           </div>
 
           <div class="card">
             <i class="fa-solid fa-dollar-sign"></i>
             <h3>Revenue</h3>
-            <h2>$28,947</h2>
+            <h2 class="counter" data-target="28947">0</h2>
           </div>
 
           <div class="card">
             <i class="fa-solid fa-folder"></i>
             <h3>Projects</h3>
-            <h2>1,274</h2>
+            <h2 class="counter" data-target="1274">0</h2>
           </div>
 
           <div class="card">
             <i class="fa-solid fa-list-check"></i>
             <h3>Tasks</h3>
-            <h2>8,562</h2>
+            <h2 class="counter" data-target="8562">0</h2>
           </div>
         </div>
-        <div class="activity">
+
+        <!-- Activity -->
+        <div class="activity reveal">
           <h2>Recent Activity</h2>
 
           <div class="activity-box">
@@ -110,36 +148,116 @@
           <div class="activity-box">
             <p>⚙️ Settings updated</p>
           </div>
-          <div class="charts">
-            <div class="chart-card">
-              <h2>Analytics</h2>
+        </div>
 
-              <div class="bars">
-                <div class="bar">
-                  <span>Mon</span>
-                  <div class="progress p1"></div>
-                </div>
+        <!-- Charts -->
+        <div class="chart-card reveal">
+          <h2>Analytics</h2>
 
-                <div class="bar">
-                  <span>Tue</span>
-                  <div class="progress p2"></div>
-                </div>
+          <div class="bar">
+            <span>Mon</span>
+            <div class="progress p1"></div>
+          </div>
 
-                <div class="bar">
-                  <span>Wed</span>
-                  <div class="progress p3"></div>
-                </div>
+          <div class="bar">
+            <span>Tue</span>
+            <div class="progress p2"></div>
+          </div>
 
-                <div class="bar">
-                  <span>Thu</span>
-                  <div class="progress p4"></div>
-                </div>
+          <div class="bar">
+            <span>Wed</span>
+            <div class="progress p3"></div>
+          </div>
 
-                <div class="bar">
-                  <span>Fri</span>
-                  <div class="progress p5"></div>
-                </div>
-              </div>
+          <div class="bar">
+            <span>Thu</span>
+            <div class="progress p4"></div>
+          </div>
+
+          <div class="bar">
+            <span>Fri</span>
+            <div class="progress p5"></div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-section reveal">
+          <h2>Recent Transactions</h2>
+
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Amount</th>
+            </tr>
+
+            <tr>
+              <td>Ravi</td>
+              <td>Completed</td>
+              <td>$250</td>
+            </tr>
+
+            <tr>
+              <td>Rahul</td>
+              <td>Pending</td>
+              <td>$180</td>
+            </tr>
+
+            <tr>
+              <td>Anil</td>
+              <td>Completed</td>
+              <td>$450</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-section reveal">
+          <h2>Project Progress</h2>
+
+          <div class="progress-item">
+            <p>Website Design</p>
+            <div class="progress-bar">
+              <div class="progress-fill fill1"></div>
+            </div>
+          </div>
+
+          <div class="progress-item">
+            <p>Dashboard UI</p>
+            <div class="progress-bar">
+              <div class="progress-fill fill2"></div>
+            </div>
+          </div>
+
+          <div class="progress-item">
+            <p>Mobile Responsive</p>
+            <div class="progress-bar">
+              <div class="progress-fill fill3"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team -->
+        <div class="team-section">
+          <h2>Team Members</h2>
+
+          <div class="team-cards">
+            <div class="team-card">
+              <img src="https://i.pravatar.cc/100?img=1" alt="" />
+              <h3>Ravi</h3>
+              <p>Frontend Developer</p>
+            </div>
+
+            <div class="team-card">
+              <img src="https://i.pravatar.cc/100?img=2" alt="" />
+              <h3>Rahul</h3>
+              <p>UI Designer</p>
+            </div>
+
+            <div class="team-card">
+              <img src="https://i.pravatar.cc/100?img=3" alt="" />
+              <h3>Teja</h3>
+              <p>Backend Developer</p>
             </div>
           </div>
         </div>
